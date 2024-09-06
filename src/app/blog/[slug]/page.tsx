@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { getBlogPosts } from "../utils";
 import { CustomMDX } from "../customComponent";
 
-export async function generateStaticParams() {
-  let posts = getBlogPosts();
-  return posts.map(async (post) => ({
+export function generateStaticParams() {
+  const posts = getBlogPosts();
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
