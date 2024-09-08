@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { getBlogPosts } from "../utils";
-import { CustomMDX } from "../customComponent";
+import { getBlogPosts } from "../../utils";
+import { CustomMDX } from "../../CustomMdxComponent";
 
 export function generateStaticParams() {
   const posts = getBlogPosts();

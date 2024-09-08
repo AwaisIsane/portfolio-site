@@ -1,11 +1,21 @@
 import path from "path";
 import fs from "fs";
 
-type Metadata = {
+type BlogMetadata = {
   title: string;
   publishedAt: string;
-  summary: string;
+  summary?: string;
   image?: string;
+};
+
+export type Posts = {
+  metadata: BlogMetadata;
+  slug: string;
+  content: string;
+};
+
+export type Project = {
+  content: string;
 };
 
 function readMDXFile(filePath: string) {
@@ -26,8 +36,13 @@ function getMDXData(dir: string) {
   });
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), "src", "app", "blog", "posts"));
+export function getBlogPosts(): Posts[] {
+  return getMDXData(path.join(process.cwd(), "src", "app", "blogs", "posts"));
+}
+export function getProjects(): Posts[] {
+  return getMDXData(
+    path.join(process.cwd(), "src", "app", "projects", "posts")
+  );
 }
 
 function getMDXFiles(dir: string) {
@@ -42,14 +57,14 @@ function parseFrontmatter(fileContent: string) {
   let frontMatterBlock = match![1];
   let content = fileContent.replace(frontmatterRegex, "").trim();
   let frontMatterLines = frontMatterBlock.trim().split("\n");
-  let metadata: Partial<Metadata> = {};
+  let metadata: Partial<BlogMetadata> = {};
 
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(": ");
     let value = valueArr.join(": ").trim();
     value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value;
+    metadata[key.trim() as keyof BlogMetadata] = value;
   });
 
-  return { metadata: metadata as Metadata, content };
+  return { metadata: metadata as BlogMetadata, content };
 }

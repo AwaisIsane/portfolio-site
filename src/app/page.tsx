@@ -1,5 +1,6 @@
 import Image from "next/image";
 import localFont from "next/font/local";
+import Link from "next/link";
 
 // Font files can be colocated inside of `pages`
 const myFontTitle = localFont({
@@ -13,19 +14,36 @@ export default function Home() {
         <p className={`${myFontTitle.className} text-9xl`}>Awais Isane</p>
       </div>
       <div className="flex justify-center gap-x-5">
-        <ImageLinks src="/x-logo-black.png" alt="logo of X.com" label="X" />
+        <ImageLinks
+          src="/x-logo-black.png"
+          alt="logo of X.com"
+          label="X"
+          href="https://x.com/6001k1d"
+        />
         <ImageLinks
           src="/github-mark.svg"
           alt="logo of github"
           label="Github"
+          href="https://github.com/AwaisIsane"
         />
         <ImageLinks
           src="/linkedin_ico.webp"
           alt="logo of linkedin"
           label="Linkedin"
+          href="https://www.linkedin.com/in/awaisisane"
         />
-        <ImageLinks src="/mail_ico.webp" alt="logo of email" label="Email" />
-        <ImageLinks src="/blog-solid.svg" alt="blog icon" label="Blog" />
+        <ImageLinks
+          src="/mail_ico.webp"
+          alt="logo of email"
+          label="Email"
+          href="mailto:awaisisane@gmail.com"
+        />
+        <ImageLinks
+          src="/blog-solid.svg"
+          alt="blog icon"
+          label="Blog"
+          href="/blogs"
+        />
       </div>
     </main>
   );
@@ -34,15 +52,19 @@ const ImageLinks = ({
   src,
   alt,
   label,
+  href,
 }: {
   src: string;
   alt: string;
   label: string;
+  href: string;
 }) => {
   return (
-    <div className="flex flex-col items-center">
-      <Image src={src} width={32} height={32} alt={alt} />
-      <div> {label}</div>
-    </div>
+    <Link href={href}>
+      <div className="flex flex-col items-center">
+        <Image src={src} width={32} height={32} alt={alt} />
+        <div> {label}</div>
+      </div>
+    </Link>
   );
 };
