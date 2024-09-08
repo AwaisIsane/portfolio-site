@@ -4,6 +4,7 @@ import fs from "fs";
 type BlogMetadata = {
   title: string;
   publishedAt: string;
+  weight?: string;
   summary?: string;
   image?: string;
 };
@@ -35,14 +36,33 @@ function getMDXData(dir: string) {
     };
   });
 }
+const sortPosts = (posts: Posts[]) => {
+  return posts.toSorted((a, b) => {
+    if ("weight" in a.metadata && "weight" in b.metadata) {
+      return Number(b.metadata.weight) - Number(a.metadata.weight);
+    } else if ("weight" in a.metadata) {
+      return -1;
+    } else if ("weight" in b.metadata) {
+      return 1;
+    }
+    return (
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+    );
+  });
+};
 
-export function getBlogPosts(): Posts[] {
-  return getMDXData(path.join(process.cwd(), "src", "app", "blogs", "posts"));
+export function getBlogPosts(sort = true): Posts[] {
+  const data = getMDXData(
+    path.join(process.cwd(), "src", "app", "blogs", "posts")
+  );
+  return sort ? sortPosts(data) : data;
 }
-export function getProjects(): Posts[] {
-  return getMDXData(
+export function getProjects(sort = true): Posts[] {
+  const data = getMDXData(
     path.join(process.cwd(), "src", "app", "projects", "posts")
   );
+  return sort ? sortPosts(data) : data;
 }
 
 function getMDXFiles(dir: string) {

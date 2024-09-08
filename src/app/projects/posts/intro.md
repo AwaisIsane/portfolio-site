@@ -1,6 +1,7 @@
 ---
-title: "Spaces vs. Tabs: The Indentation Debate Continues"
+title: "Spaces vs. Tabs: The Indentation Debate Continues 3"
 publishedAt: "2024-04-08"
+weight: 1
 ---
 
 # GFM
