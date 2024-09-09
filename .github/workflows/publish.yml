@@ -33,3 +33,4 @@ jobs:
           folder: out # The folder the action should deploy.
           repository-name: AwaisIsane/awaisisane.github.io
           branch: main
+          ssh-key: ${{ secrets.DEPLOY_KEY }}

@@ -13,3 +13,7 @@ summary: "about me blog"
 # i live in mumbai 🛺
 
 # feel free to invite me for chai ☕
+
+# i post on twitter [@6001k1d](https://x.com/6001k1d)
+
+# you can find my projects on [github](https://github.com/6001k1d)
