@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { getBlogPosts } from "./utils";
+import { siteDetails } from "./site-details";
 //this does not work when you run npm run dev see issue here https://github.com/vercel/next.js/issues/59136
 export default function sitemap(): MetadataRoute.Sitemap {
-  const url = "https://awaisisane.com";
+  const url = siteDetails.siteUrl;
   const links = [
     {
       url: url, // Replace with your homepage
