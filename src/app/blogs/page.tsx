@@ -6,15 +6,17 @@ import { getBlogPosts } from "../utils";
 export default function BlogList() {
   const posts = getBlogPosts();
   return (
-    <ul>
-      {posts.map((post, i) => (
-        <BlogComponent
-          key={i}
-          time={post.metadata.publishedAt}
-          title={post.metadata.title}
-          slug={post.slug}
-        ></BlogComponent>
-      ))}
-    </ul>
+    <main>
+      <ul>
+        {posts.map((post, i) => (
+          <BlogComponent
+            key={i}
+            time={post.metadata.publishedAt}
+            title={post.metadata.title}
+            slug={post.slug}
+          ></BlogComponent>
+        ))}
+      </ul>
+    </main>
   );
 }

@@ -13,15 +13,17 @@ const components = {
 
 export function CustomMDX(props: any) {
   return (
-    <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-      options={{
-        mdxOptions: {
-          remarkPlugins: [remarkGfm],
-          rehypePlugins: [rehypePrism],
-        },
-      }}
-    />
+    <article>
+      <MDXRemote
+        {...props}
+        components={{ ...components, ...(props.components || {}) }}
+        options={{
+          mdxOptions: {
+            remarkPlugins: [remarkGfm],
+            rehypePlugins: [rehypePrism],
+          },
+        }}
+      />
+    </article>
   );
 }

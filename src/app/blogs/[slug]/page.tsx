@@ -23,5 +23,9 @@ export default function BlogPost({
     notFound();
   }
 
-  return <CustomMDX source={post.content} />;
+  return (
+    <main>
+      <CustomMDX source={post.content} />
+    </main>
+  );
 }
