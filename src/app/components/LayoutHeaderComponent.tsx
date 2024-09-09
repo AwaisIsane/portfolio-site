@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function LayoutHeaderComponent({
@@ -21,6 +22,16 @@ export default function LayoutHeaderComponent({
           <Link href="/projects" className="hover:underline">
             Projects
           </Link>
+          {navSection === "Blogs" && (
+            <Link href="/feed.xml">
+              <Image
+                src="/rss-solid.svg"
+                alt="rss"
+                width={16}
+                height={16}
+              ></Image>
+            </Link>
+          )}
         </nav>
       </header>
       <div>{children}</div>
