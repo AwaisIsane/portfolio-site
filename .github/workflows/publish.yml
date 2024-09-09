@@ -26,7 +26,8 @@ jobs:
 
       - name: Build with Next.js 🏗️
         run: npx next build
-
+      - name: Create .nojekyll
+        run: touch ./out/.nojekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
