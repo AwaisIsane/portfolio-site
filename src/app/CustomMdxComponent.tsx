@@ -16,12 +16,12 @@ const components = {
   ),
 };
 
-export function CustomMDX(props: any) {
+export function CustomMDX({ source }: { source: string }) {
   return (
     <article>
       <MDXRemote
-        {...props}
-        components={{ ...components, ...(props.components || {}) }}
+        source={source}
+        components={components}
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm],
