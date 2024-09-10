@@ -7,7 +7,7 @@ summary: "deploy nextjs site to github pages using github actions"
 # **Deploying nextjs site to github pages**
 
 \
-i deployed my portfolio site [code to site](https://github.com/AwaisIsane/portfolio-site) to github pages her is how i did it .
+i deployed my portfolio site [code to site](https://github.com/AwaisIsane/portfolio-site) to github pages here is how i did it .
 
 i used github [actions](https://docs.github.com/en/actions) for this process \
 \
