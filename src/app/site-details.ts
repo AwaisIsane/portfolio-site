@@ -1,5 +1,5 @@
 export const siteDetails = {
-  siteUrl: "https://awaisisane.github.io",
+  siteUrl: "https://awaisisane.com",
   siteName: "Awais Isane",
   siteDescription:
     "A passionate developer from india , i like building cool stuff",
