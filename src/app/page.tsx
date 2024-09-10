@@ -15,7 +15,7 @@ export default function Home() {
       </div>
       <div className="flex justify-center gap-x-5">
         <ImageLinks
-          src="/x-logo-black.png"
+          src="/x-logo-black.svg"
           alt="logo of X.com"
           label="X"
           href="https://x.com/6001k1d"
