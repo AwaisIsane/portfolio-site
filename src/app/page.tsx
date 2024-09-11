@@ -61,7 +61,7 @@ const ImageLinks = ({
 }) => {
   return (
     <Link href={href}>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center h-16 min-w-8">
         <Image src={src} width={32} height={32} alt={alt} />
         <div> {label}</div>
       </div>
