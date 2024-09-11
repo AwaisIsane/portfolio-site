@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   getBlogPosts().forEach((post) => {
     links.push({
-      url: `${url}/blog/${post.slug}`,
+      url: `${url}/blogs/${post.slug}`,
       lastModified: new Date(post.metadata.publishedAt),
     });
   });

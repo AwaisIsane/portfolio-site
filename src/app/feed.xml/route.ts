@@ -17,8 +17,8 @@ export async function GET() {
   posts.map((post) => {
     feed.item({
       title: post.metadata.title,
-      guid: `${siteDetails.siteUrl}/${post.slug}`,
-      url: `${siteDetails.siteUrl}/${post.slug}`,
+      guid: `${siteDetails.siteUrl}/blogs/${post.slug}`,
+      url: `${siteDetails.siteUrl}/blogs/${post.slug}`,
       date: post.metadata.publishedAt,
       description: post.metadata.summary || "",
       author: "Awais Isane",
