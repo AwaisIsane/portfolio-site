@@ -27,10 +27,20 @@ jobs:
           [ -f public/robots.txt ] && cp public/robots.txt out/ || true
           [ -f Awais-Isane-Resume.pdf ] && cp Awais-Isane-Resume.pdf out/ || true
 
+      - name: Setup SSH 🔑
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: out
-          repository-name: AwaisIsane/awaisisane.github.io
-          branch: main
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          cd out
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy portfolio site"
+          GIT_SSH_COMMAND="ssh -i $HOME/.ssh/deploy_key" \
+          git push --force git@github.com:AwaisIsane/awaisisane.github.io.git HEAD:main
